@@ -1,0 +1,69 @@
+-= Pre installation =-
+
+1. Download Google API from "http://code.google.com/p/gdata-java-client/downloads/detail?name=gdata-src.java-1.44.0.zip&can=2&q=" and extract to your desire directory
+2. Add Google API to your repository
+   ref : http://www.meyermillersmith.com/en//MMS-Software/Adding-Google-API-to-Maven-Repository?smm=y&language=en_EN
+
+   cd /path/to/compiled/google/lib/
+   mvn install:install-file -Dfile=gdata-core-1.0.jar -DgroupId=google -DartifactId=gdata-core -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
+   mvn install:install-file -Dfile=gdata-client-meta-1.0.jar -DgroupId=google -DartifactId=gdata-client-meta -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
+   mvn install:install-file -Dfile=gdata-client-1.0.jar -DgroupId=google -DartifactId=gdata-client -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
+   mvn install:install-file -Dfile=gdata-calendar-meta-2.0.jar -DgroupId=google -DartifactId=gdata-calendar-meta -Dversion=2.0 -Dpackaging=jar -DgeneratePom=true
+   mvn install:install-file -Dfile=gdata-calendar-2.0.jar -DgroupId=google -DartifactId=gdata-calendar -Dversion=2.0 -Dpackaging=jar -DgeneratePom=true
+   cd ../deps
+   mvn install:install-file -Dfile=google-collect-1.0-rc1.jar -DgroupId=google -DartifactId=collect -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
+   mvn install:install-file -Dfile=jsr305.jar -DgroupId=javax.annotation -DartifactId=jsr305 -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
+
+   add dependency to pom.xml (already add in this project)
+  
+  <dependency>
+   <groupId>google</groupId>
+   <artifactId>gdata-core</artifactId>
+   <version>1.0</version>
+   <type>jar</type>
+   <scope>compile</scope>
+  </dependency>
+  <dependency>
+   <groupId>google</groupId>
+   <artifactId>gdata-calendar</artifactId>
+   <version>2.0</version>
+   <type>jar</type>
+   <scope>compile</scope>
+  </dependency>
+  <dependency>
+   <groupId>google</groupId>
+   <artifactId>gdata-client</artifactId>
+   <version>1.0</version>
+   <type>jar</type>
+   <scope>compile</scope>
+  </dependency>
+  <dependency>
+   <groupId>google</groupId>
+   <artifactId>gdata-client-meta</artifactId>
+   <version>1.0</version>
+   <type>jar</type>
+   <scope>compile</scope>
+  </dependency>
+  <dependency>
+   <groupId>google</groupId>
+   <artifactId>gdata-calendar-meta</artifactId>
+   <version>2.0</version>
+   <type>jar</type>
+   <scope>compile</scope>
+  </dependency>
+  <dependency>
+   <groupId>google</groupId>
+   <artifactId>collect</artifactId>
+   <version>1.0</version>
+   <type>jar</type>
+   <scope>compile</scope>
+  </dependency>
+  <dependency>
+   <groupId>javax.annotation</groupId>
+   <artifactId>jsr305</artifactId>
+   <version>1.0</version>
+   <type>jar</type>
+   <scope>compile</scope>
+  </dependency>
+  
+-= Installation Guild =-
