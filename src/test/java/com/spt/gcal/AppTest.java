@@ -28,10 +28,12 @@ import static org.junit.Assert.*;
 public class AppTest {
     private static Logger logger = LoggerFactory.getLogger(AppTest.class);
     CalendarUtil cu;
-	
-    public AppTest() {
+    private String user = "";
+	private String password = "";
 
-        cu = new CalendarUtil("", "");
+    public AppTest() {
+        logger.debug("username:{} password:{}",System.getProperty("username"),System.getProperty("password"));
+        cu = new CalendarUtil(user.length()!=0?user:System.getProperty("username")+"@gmail.com", password.length()!=0?password:System.getProperty("password"));
     }
     
     @Before
@@ -52,13 +54,13 @@ public class AppTest {
 
     @Test
     public void testConvertToGoogleDateFormat() {
-        String base = "2011-04-08T00:00:00";
+        String base = "2011-08-08T00:00:00";
         String result = new String();
 
         Calendar c = Calendar.getInstance();
 
         c.set(Calendar.YEAR, 2011);
-        c.set(Calendar.MONTH, 3);
+        c.set(Calendar.MONTH, 7);
         c.set(Calendar.DATE, 8);
         c.set(Calendar.HOUR_OF_DAY, 0);
         c.set(Calendar.MINUTE, 0);
@@ -72,24 +74,24 @@ public class AppTest {
 	
     @Test
     public void testgetDateBetween() {
-        String startDate = "2011-04-01";
-        String endDate = "2011-04-08";
-        int base = 8;
+        String startDate = "2011-08-01";
+        String endDate = "2011-08-31";
+        int base = 31;
 
         assertEquals(base, cu.getDateBetween(startDate, endDate).size());
 
-        startDate = "2011-04-08";
-        endDate = "2011-04-8";
+        startDate = "2011-08-01";
+        endDate = "2011-08-31";
 
-        assertEquals(1, cu.getDateBetween(startDate, endDate).size());
+        assertEquals(31, cu.getDateBetween(startDate, endDate).size());
     }
 
     @Test 
     public void testGetDataBetweenDate() {
-        int base = 23;
-        String startDate = "2011-03-01";
-        String endDate = "2011-03-30";
-        
+        int base = 5;
+        String startDate = "2011-06-01";
+        String endDate = "2011-06-30";
+        logger.debug("Data size : {}",cu.getDataBetweenDate(startDate, endDate).size()); 
         assertEquals(base, cu.getDataBetweenDate(startDate, endDate).size());
 	
     }	
