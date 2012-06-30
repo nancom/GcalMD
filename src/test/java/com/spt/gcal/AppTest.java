@@ -32,7 +32,7 @@ public class AppTest {
 	private String password = "";
 
     public AppTest() {
-        logger.debug("username:{} password:{}",System.getProperty("username"),System.getProperty("password"));
+        logger.debug("username:{} password:####",System.getProperty("username"));
         cu = new CalendarUtil(user.length()!=0?user:System.getProperty("username")+"@gmail.com", password.length()!=0?password:System.getProperty("password"));
     }
     
