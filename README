@@ -1,6 +1,6 @@
 -= Pre installation =-
 
-1. Download Google API from "http://code.google.com/p/gdata-java-client/downloads/detail?name=gdata-src.java-1.44.0.zip&can=2&q=" and extract to your desire directory
+1. Download Google API from "http://code.google.com/p/gdata-java-client/downloads/detail?name=gdata-samples.java-1.47.1.zip" and extract to your desire directory
 2. Add Google API to your repository
    ref : http://www.meyermillersmith.com/en//MMS-Software/Adding-Google-API-to-Maven-Repository?smm=y&language=en_EN
 
@@ -11,7 +11,6 @@
    mvn install:install-file -Dfile=gdata-calendar-meta-2.0.jar -DgroupId=google -DartifactId=gdata-calendar-meta -Dversion=2.0 -Dpackaging=jar -DgeneratePom=true
    mvn install:install-file -Dfile=gdata-calendar-2.0.jar -DgroupId=google -DartifactId=gdata-calendar -Dversion=2.0 -Dpackaging=jar -DgeneratePom=true
    cd ../deps
-   mvn install:install-file -Dfile=google-collect-1.0-rc1.jar -DgroupId=google -DartifactId=collect -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
    mvn install:install-file -Dfile=jsr305.jar -DgroupId=javax.annotation -DartifactId=jsr305 -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
 
    add dependency to pom.xml (already add in this project)
@@ -52,21 +51,25 @@
    <scope>compile</scope>
   </dependency>
   <dependency>
-   <groupId>google</groupId>
-   <artifactId>collect</artifactId>
-   <version>1.0</version>
-   <type>jar</type>
-   <scope>compile</scope>
-  </dependency>
-  <dependency>
    <groupId>javax.annotation</groupId>
    <artifactId>jsr305</artifactId>
    <version>1.0</version>
    <type>jar</type>
    <scope>compile</scope>
   </dependency>
+  <dependency>
+	<groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+                <version>r05</version>
+        </dependency>
+  <dependency>
+        <groupId>com.google.collections</groupId>
+        <artifactId>google-collections</artifactId>
+                <version>1.0</version>
+        </dependency>
+  <dependency>
 3. Add surefire-plugins 
-i<plugin>
+<plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.9</version>
